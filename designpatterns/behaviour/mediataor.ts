@@ -2,6 +2,8 @@
 //leaving the details of notifying other bidders
 //of user bid is not a good way its clutter
 
+//reduces direct communication by introducing central mediator
+
 
 interface AuctionMediator {
     registerBidder(bidder: Bidder): void
