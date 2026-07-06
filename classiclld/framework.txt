@@ -1,0 +1,86 @@
+1.clarify requirements
+functional req:
+
+ex : parking lot
+park a vehicle
+unpark a vehicle
+find avaialable slots
+calucalate fee
+
+non functional req
+
+is conccurency important
+is persistance needed
+is extensibility needed
+
+
+2 identfying core entities
+
+vehicle
+Movie
+theater
+Booking 
+
+
+3.define responsibilties
+
+Booking -> book tickets
+Payments -> handle Payments
+Show -> mantain seats
+Seat ->store status
+
+prevents GOD classes
+
+
+4.define relatoionships
+is-a(Inheritance)
+car is a vehicle
+bike is a vehicle
+
+has-a(composition)
+Parking lot has floors
+Floors has slots
+
+USES-A(dependency)
+
+Booking service uses payment service
+
+
+5.variatons
+
+Multiple payments - strategy pattern
+Notifications - observer pattern
+Different object creation factory design pattern
+sequenctial validaton auth fraud check limits chain of responsibilties
+
+6 identify interfaces
+
+7.apply solid 
+
+8. class/uml diagram
+
+9. code core flow
+
+
+
+
+1. Clarify requirements
+2. Identify entities
+3. Define responsibilities
+4. Relationships
+5. Variations
+6. Interfaces
+7. SOLID
+8. UML
+9. Code
+
+
+in code
+
+1.desing a happ path
+2.classses
+3.methods
+4.Relationships
+5.interfaces
+6.fields
+7.start impl

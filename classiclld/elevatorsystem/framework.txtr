@@ -1,0 +1,146 @@
+requirements:
+1.single building - 20 floors - multiple elevators
+2.floor requests up and down -  on press a button system should created req
+3.elevator requests(passenger can select floor , open ,close ,alaram)
+4.elevator allocation -when hall request is allocated 
+we need to give the best elevator
+5.elevator moment - (up,down,stop,open,closed)
+6.elavtor stats(idle,moving up,moving down,doors open,doors closed,mantainance)
+7.capacity
+
+
+core entitties:
+Building
+Eleavtor
+Floor
+Requests
+
+responsibilities
+
+Building 
+ - contain multiple floor
+
+floor 
+  - creates hall requests
+  - have option to up and down clicks
+  - call controller upon request
+
+ElavtorController
+     - respond to outside ruests + delegate to best elevator possible
+     - response to inside request optimize to best next floor
+
+
+Eleavtor
+    -move bw floors
+    -open/cose doors
+    -mantain current floor
+    -matain current direction
+    -mantain current state
+    - provide current state
+    - set state
+    -execute assigned requests
+    -takes inside requests call controller
+
+
+
+requests 
+  - floor and up or down in each request
+  - inside request to be one of destination floors
+
+
+
+Core Entities Precisde
+
+Building
+- contains multiple floors
+- contains multiple elevators
+
+Floor
+- has up/down buttons
+- creates hall request
+- sends request to ElevatorController
+
+ElevatorController
+- receives hall requests
+- chooses best elevator
+- assigns request to elevator
+- tracks elevator status
+- ignores elevators in maintenance
+
+Elevator
+- moves between floors
+- opens/closes doors
+- maintains current floor
+- maintains current direction
+- maintains current state
+- maintains pending requests
+- executes assigned requests
+- accepts inside requests
+- reports current status
+
+HallRequest
+- source floor
+- direction (UP/DOWN)
+
+CabinRequest
+- destination floor
+
+ElevatorAllocationStrategy
+- selects best elevator for a hall request
+
+
+
+relationships
+buildings - floors,elevators
+floors - has access to elevatorController to send requests
+elevator - 
+
+
+
+user flow
+user enters building - could be any floor - create hall request
+-enters elevator which arrives at floor - creates cabin request
+-exists at desired floor
+
+
+system flow
+building(floor and elevators) - when clicks on any floor - call specic floors to create hallrequest - call controller to handle requests - use strategy to get bast Eleavtor
+- delegate  request  to elevator - elevators take up the requests acts upon next request
+
+
+user flow refined
+
+1. User presses UP/DOWN button on a floor.
+2. Floor creates a HallRequest.
+3. Assigned elevator arrives at the floor.
+4. User enters the elevator.
+5. User selects destination floor.
+6. Elevator creates a CabinRequest.
+7. Elevator moves to the destination floor.
+8. User exits the elevator.
+
+Building
+    ↓
+User presses floor button
+    ↓
+Floor creates HallRequest
+    ↓
+ElevatorController receives request
+    ↓
+ElevatorAllocationStrategy selects best elevator
+    ↓
+Controller assigns request to selected elevator
+    ↓
+Elevator adds request to its pending queue
+    ↓
+Elevator executes requests one by one
+    ↓
+Passenger enters elevator
+    ↓
+Passenger selects destination floor
+    ↓
+Elevator creates CabinRequest
+    ↓
+Elevator adds destination to its pending queue
+    ↓
+Elevator continues executing requests

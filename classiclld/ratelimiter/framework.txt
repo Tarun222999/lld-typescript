@@ -1,0 +1,63 @@
+1.Allow or rejct requests based on configuration
+2.rate limit should work on diff identifies
+    -userId,Ip,clientID,API key
+3.configuralble limits
+Each limit should define:
+Maximum requests
+Time window
+100 requests / minute
+1000 requests / hour
+10 requests / second
+
+4.system should be extensible to support different alogirithms
+token bucket
+fixed window
+sliding window counter
+5.different rate limits for different clients
+100 requests / minute
+1000 requests / hour
+10 requests / second
+6.for every request return accept/reject
+
+
+system flow 
+
+request commes in goal is to accept or rejct 
+will be based on ratelimit strategy
+will be based on different client types
+limiter should configurable for no of req's and also diff clients
+send the details ratelimit algorithm to decided accept or reject
+
+
+entities 
+Request
+RateLimiter
+RateLimiterStrategy
+RateLimitConfig
+RateLimitClientConfig
+RateLimiterStorage
+RateLimiterRule
+
+
+responsibilitles
+ratelimiter 
+should be configured with ratelimiterrule 
+should be configure with ClientConfig
+
+canInititate
+ ->takes request
+ ->calls strategy
+ ->send reject or accept based on 
+
+
+strategy
+algo takes the request 
+get the previous from db
+apply algo
+save the result to db
+send response
+
+RateLimiterStorage
+save
+getrequests of user
+

@@ -1,0 +1,131 @@
+parking lot 
+A parking lot management system is designed to handle the operations of parking vehicles, collecting payments, and managing available space efficiently. The system should be able to accommodate different types of vehicles, provide payment options, and ensure a smooth user experience.
+
+Interviewer: We want a system that:
+
+• Supports different vehicle types (Bike, Car, Truck).
+
+• Has different slot sizes based on vehicle type.
+
+• Allows multiple payment methods.
+
+• Ensures smooth entry and exit with parking fee calculation.
+
+
+
+1.clarify requirements
+functional req:
+a parking lot with multiple slot types
+support for bikes cars trucks
+dynamic slot allocation based on vehicle sizes
+pamynet process with multiple methods
+entry ticket issuance and exit validation
+Tracking Vehicle Duration: Keeping a record of entry times for payment calculations.
+
+non functional req
+Managing Concurrency: Ensuring simultaneous vehicle entries and exits are handled properly.
+
+
+
+
+2 identfying core entities
+
+Vehicle 
+PaymentStrategy
+Parking lot
+Parking slots
+
+
+
+3.define responsibilties
+
+Parking Lot - does all the job god class
+Payments Proccesor - handles payment stuff
+
+prevents GOD classes
+
+
+4.define relatoionships
+is-a(Inheritance)
+
+Car/Truck is a vehicle
+
+
+has-a(composition)
+Parking lot has floors
+floors has slots
+
+USES-A(dependency)
+
+Parking lot dependns on Pamynet service
+
+
+5.variatons
+
+
+
+6 identify interfaces
+
+7.apply solid 
+
+8. class/uml diagram
+
+9. code core flow
+
+
+
+
+happy path -->
+
+Entry -> vehicle comes in -> find slot -> assign slot ->generate ticket 
+
+Exit -> ticket ->calucalate fee -> payment -> release slot
+
+
+ParkingLot stores floors
+SlotAllocator -> findAvailableSlot(vehicle)
+FeeCalucalator -> calucalate(ticket)
+PaymentProcessor -> process(Payment)
+TIcketService -> issueTicket(),closeTicket()
+
+Slot{
+    canFit()
+    assing()
+    free()
+}
+
+Allocation strategy
+Nearest slot
+Random slot
+Lowest floor first
+VIP floor first
+
+interface SlotAllocationStrategy {
+    Slot allocate(...);
+}
+
+entities
+Vehicle car|bike|truck
+ParkingLot
+ParkingFloor
+ParkingSlot
+
+Ticket
+
+PaymentStrategy
+FeeStrategy
+SlotAllocationStrategy
+
+
+Services:
+Ticket service
+ PaymentProcessor
+fees calucalator
+
+
+
+entry:
+park(vehicle) ->SlotAllocator->parkingslot.assign()->ticket service.assing()->return ticket
+
+exit:
+unpark(ticket)->FeeCalucalator->paymentprocess->parkingslot.free->closeticket()

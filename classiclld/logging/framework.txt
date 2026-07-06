@@ -1,0 +1,72 @@
+Design a logging framework that applications can use to log messages.
+
+Initially, it should support logging to the console.
+
+Later, it should be easy to:
+
+add new destinations (File, Database, Kafka, Cloud)
+support different log levels
+support different output formats
+support asynchronous logging
+configure multiple outputs
+
+
+logger with levels
+Logger.log(INFO, "Application Started")
+Logger.log(ERROR, "Database Down")
+log level - DEBUG|INFO|WARN|FATAL|ERROR
+
+
+logger with diff stoage destinations
+Logger.log("error","store to file")
+
+
+logger with diff op formats
+Logger.log(WARN, {key:vale})
+
+
+support multiple destinations
+support log filterning(multiple)
+
+coniguration
+Logger
+    level = INFO
+    appenders = [
+        Console,
+        File
+    ]
+
+
+
+File writing is slow.
+
+Design async logging.
+
+Application
+      ↓
+Queue
+      ↓
+Background Worker
+      ↓
+File
+
+
+
+Entities
+Logger
+StorageSource
+
+logger should be a singleton instance per project
+output pattersn could be created with (builder + factory)
+logger should store to destination aks the correct store to do that
+based on the store storage context set(could also be multiple destinations)
+call the correect source with filters
+
+
+
+
+
+
+
+
+

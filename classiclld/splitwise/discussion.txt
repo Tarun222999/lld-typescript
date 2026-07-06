@@ -1,0 +1,83 @@
+Users
+Groups
+Expenses
+Equal Split
+Exact Split
+Percentage Split
+Balances
+Settlement
+
+
+lets see how a user path looks
+
+user would be added to the sytem->every user will start adding his Expenses
+->asks for split(could be equal,exact,percent split) -> we will send the notification
+of bill split -> user tries to settle 
+
+i will be giving this flow for interviewer but i have few questions
+
+do we also have different ways to settle i mean lets say
+
+a has to pay b 30$ and c 50$
+
+how the system should accept settle it should only take full ammount
+or accept a settle for each person 
+or system should settle based on given ammount each time?
+
+
+
+user want to join a certain group -> 
+add expenses -> 
+chose splittype ->
+validate split ->
+update balance -> 
+notify users ->
+view outstanding Balances ->
+settle balances
+
+
+
+1. User Registration
+2. Create/Join Group
+3. Add Expense
+4. Choose Split Type
+5. Validate Split
+6. Calculate Individual Shares
+7. Update Balances
+8. Notify Participants
+9. View Outstanding Balances
+10. Settle Balance
+
+
+entities:
+User 
+Group
+Expense
+Splitservice
+Notification
+
+responsibilties:
+
+
+user <- need to register
+
+group <- add to the group,remove from the group
+        <- mantain expenses
+
+expense <- create a expense/multiple expenses also takes group 
+
+Splitservice <- calucalte shares based on the splity type of group / individual shares <- settle balances
+
+notification <- notification on events
+
+
+relationships:
+
+users
+groups has users(compostion)
+groups has expenses
+expeses users groups
+Splitservice uses groups (depdendency)
+
+systems uses notification
+
