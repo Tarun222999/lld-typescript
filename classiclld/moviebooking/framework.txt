@@ -1,0 +1,44 @@
+
+
+1.user registration/login
+2.booking history
+3.add remove update movie
+4.theatre management admin can manage theaters
+5.screens - each theatre has multiple screens
+6.show management - create movie shows
+7.seat management - each screen has seats
+8.seat locking 
+9.user book seats
+10.payment 
+11.ticket generation
+12.cancelation
+13.notification
+
+
+Entities:
+User
+Admin
+Movie
+theatre
+screen
+Seats
+Ticket
+BookingSystem - 
+Payment interface
+Notification System
+
+
+users comes check avl movies 
+-> select one movie 
+-> give avl seats
+-> select seat and book
+-> generate ticket 
+-> have option to cancel
+
+
+Responsibilties
+Theatre has screens
+screens has seats
+movies played in screens
+booking system takes movie seat theatre screen generate ticket
+

@@ -1,0 +1,32 @@
+1. Functional Requirements
+Core Features
+Add products
+Maintain inventory
+Select product
+Insert money
+Purchase product
+Return change
+Cancel transaction
+Dispense product
+
+
+Admin Features
+Restock products
+Update prices
+View inventory
+
+
+Entity:
+VendingMeachine
+Inventory
+Product
+Payment
+transaction
+
+flow: 
+idle(list all available products)
+product_selected(select quantiy,check avl if not reject.move to payment state)
+payment_pending(collect payment move to payment_complete)
+payment_complete(check for cancel if canel refund,,move to dispense state)
+dispense_state(product dec from inventory,intimate admin for out of stock,give product to user,move to idle state)
+
