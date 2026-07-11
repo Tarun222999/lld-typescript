@@ -1,0 +1,46 @@
+rbac and permissions
+
+function reqs:
+create user
+update user
+delete user
+
+role management
+create role 
+update role
+delete role
+assiggment permission to role
+remove permission to role 
+
+ex:admin,employe,manager,guest
+
+permission manangement actions
+
+READ_USER
+WRITE_USER
+DELETE_USER
+
+READ_PROJECT
+CREATE_PROJECT
+UPDATE_PROJECT
+DELETE_PROJECT
+
+
+role assigments 
+one or more roles to user
+
+Authorization
+User resouce actions
+write,delete,read
+
+resource protection
+
+
+cache,audio logs,
+
+
+
+user
+role 
+permission
+resource 

@@ -1,0 +1,35 @@
+
+user side:
+1.evaluate whether the feature is enabled
+2.support boolean feature flags
+3.support percentage rollout
+4.support user targetting
+5.support group/segement targetting
+6.support environment specific flags
+7.support default values
+
+
+admin side
+crud featureflag
+enable/disable feature flag
+config rollout percentage 
+config targeting rules
+
+
+system:
+cache flags in memory
+low latency
+support multiple evaluation strategy 
+thread safety
+
+
+
+
+
+entities
+FeatureFlag
+User
+Admin
+Rules(rollout percentage,env ,regions,)
+TargettingUsers
+TargettingGroups
