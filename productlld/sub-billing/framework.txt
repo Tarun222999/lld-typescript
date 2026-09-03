@@ -1,0 +1,69 @@
+fr:
+
+admin can create plans
+
+plans have 
+    id
+    name
+    price
+    billing cycle
+    features
+
+
+
+user can
+    susbcribe
+    upgrade
+    downgrade
+    cancel
+    renew
+    resume
+
+
+billing
+    invoice 
+        -amount 
+        -tax
+        -payment status
+        -discount
+
+
+payments
+    -support mutliple payments
+
+notification
+    -send notifications 
+    -subscription started
+    -subscription renewed
+    -cancelation | expiration reminder
+
+auto renewal
+    on renewal date
+        -generate invoice 
+        -charge payment
+        -renew subscription
+    or else
+        subscription expires
+
+
+coupons
+    user can apply coupons
+    coupon 
+        fixed discount
+        percentage discount
+    
+
+billing history
+
+
+Entites
+User | Admin
+Plan
+Subscription(planid,userid,subscribed date,renewal at)
+SubscriptionService
+App(choose package| and all susbcribe stuff)
+Payments
+Notification
+Coupon
+Audit log
+

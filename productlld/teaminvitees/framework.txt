@@ -1,0 +1,51 @@
+team
+crud teams
+
+invite
+
+admin can invite users
+invite via email
+resend invite
+cancel invite
+invite expires after configurable time
+-------------
+accept invite
+joins team
+invite becomes invalid
+------------
+reject invite
+-user rejects invite
+-invite mark rejected
+--------
+
+roles
+owner
+admin
+member
+
+owner can 
+invite anyone
+remove anyone
+promote/demote admin
+
+admin can
+invite memebers 
+remove memebers
+
+
+
+entities
+
+Role
+User
+Team 
+TeamMember
+TeamRepository
+TeamsService
+Invites
+InviteStrategy
+AuditLogger
+
+
+owner -> asks teams service add this to this team
+      -> make him admin/remove him admin

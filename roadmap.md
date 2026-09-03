@@ -81,6 +81,8 @@ The course is built incrementally. Add full module content only when that topic 
 - RBAC and permissions
 - Team invites
 - Subscription billing
+
+
 - Notification preferences
 - Audit logs
 - Workflow automation
